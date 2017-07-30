@@ -1,0 +1,14 @@
+set terminal postscript enhanced color eps
+set title "Car Sharing"
+set xlabel "Time (s) - Distance (m)"
+set ylabel "# Vehicles"
+#set yrange [3000:10000]
+set key outside top right
+set xtics rotate out
+set style data histogram
+set style fill solid border
+
+set style histogram clustered
+set o 'car-sharing-histogram.eps'
+plot 'car-sharing-histograms.dat' using 2:xtic(1) title "# Starting Cars",\
+'' using 3:xtic(1) title "# Final Cars",\

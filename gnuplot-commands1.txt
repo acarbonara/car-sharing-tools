@@ -1,0 +1,18 @@
+set terminal postscript enhanced color eps
+set title "Car Sharing with time limits"
+set xlabel "Time (s)"
+set ylabel "# Vehicles"
+set yrange [0:40000]
+set key top left
+
+set y2tics
+
+set o 'car-sharing-time.eps'
+plot 'car-sharing-time.dat' using 1:2 title "# Starting Cars" with linespoint ls 1,\
+'' using 1:3 title " # Final Cars" with linespoint ls 2,\
+
+set title "Car Sharing with distance limits"
+set xlabel "Distance (m)"
+set o 'car-sharing-distance.eps'
+plot 'car-sharing-distance.dat' using 1:2 title "# Starting Cars" with linespoint ls 1,\
+'' using 1:3 title "# Final Cars" with linespoint ls 2,\
