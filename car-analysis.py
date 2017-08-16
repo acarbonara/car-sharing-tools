@@ -56,8 +56,7 @@ if alpha == beta:
             f_s = fd.split("-")
             time = int(f_s[3])
             distance = int(f_s[4])
-            n_s = f_s[5].split(".")
-            n = int(n_s[0])
+            n = int(f_s[5])
             if time <= T or distance <= D and n == N:
                 f = city_dir + fd
                 check_file = open(f, "r")
@@ -82,7 +81,7 @@ if check_file is not None:
             cars_lists.append(cars_l)
 
 
-file_string = "matched-cars-final-" + str(T) + "-" + str(D) + "-" + str(N) + ".csv"
+file_string = "matched-cars-final-" + str(T) + "-" + str(D) + "-" + str(N) + "-" + str(alpha) + "-" + str(beta) + ".csv"
 f = open(file_string, "w")
 total_matched = 0
 for cars_l in cars_lists:
@@ -197,8 +196,8 @@ for l in matched_cars:
         out_string = out_string + car_id + " "
     out_string += "\n"
     f.write(out_string)
-out_string_end = "alpha: " + str(alpha) + " beta: " + str(beta) + " N: " + str(N) + "\n"
-f.write(out_string_end)
+'''out_string_end = "alpha: " + str(alpha) + " beta: " + str(beta) + " N: " + str(N) + "\n"
+f.write(out_string_end)'''
 f.close()
 final_cars = starting_cars - total_matched
 
