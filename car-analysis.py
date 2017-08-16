@@ -55,9 +55,9 @@ if alpha == beta:
         if "matched-cars-final" in name:
             f_s = fd.split("-")
             time = int(f_s[3])
-            d_s = f_s[4]
-            n = int(f_s[5].split("."))
-            distance = int(d_s[0])
+            distance = int(f_s[4])
+            n_s = f_s[5].split(".")
+            n = int(n_s[0])
             if time <= T or distance <= D and n == N:
                 f = city_dir + fd
                 check_file = open(f, "r")
