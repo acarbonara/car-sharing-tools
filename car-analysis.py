@@ -55,9 +55,10 @@ if alpha == beta:
         if "matched-cars-final" in name:
             f_s = fd.split("-")
             time = int(f_s[3])
-            d_s = f_s[4].split(".")
+            d_s = f_s[4]
+            n = int(f_s[5].split("."))
             distance = int(d_s[0])
-            if time <= T or distance <= D:
+            if time <= T or distance <= D and n == N:
                 f = city_dir + fd
                 check_file = open(f, "r")
 
@@ -81,7 +82,7 @@ if check_file is not None:
             cars_lists.append(cars_l)
 
 
-file_string = "matched-cars-final-" + str(T) + "-" + str(D) + ".csv"
+file_string = "matched-cars-final-" + str(T) + "-" + str(D) + "-" + str(N) + ".csv"
 f = open(file_string, "w")
 total_matched = 0
 for cars_l in cars_lists:
@@ -196,26 +197,14 @@ for l in matched_cars:
         out_string = out_string + car_id + " "
     out_string += "\n"
     f.write(out_string)
-out_string_end = "alpha: " + str(alpha) + " beta: " + str(beta) + "\n"
+out_string_end = "alpha: " + str(alpha) + " beta: " + str(beta) + " N: " + str(N) + "\n"
 f.write(out_string_end)
 f.close()
 final_cars = starting_cars - total_matched
 
-f1 = 'car-sharing-time-a' + str(alpha) + '-b' + str(beta) + '.dat'
+f1 = 'car-pooling-a' + str(alpha) + '-b' + str(beta) + '.dat'
 f = open(f1, 'a')
-out_string = str(T) + " " + str(starting_cars) + " " + str(final_cars) + "\n"
-f.write(out_string)
-f.close
-
-f2 = 'car-sharing-distance-a' + str(alpha) + '-b' + str(beta) + '.dat'
-f = open(f2, 'a')
-out_string = str(D) + " " + str(starting_cars) + " " + str(final_cars) + "\n"
-f.write(out_string)
-f.close
-
-f3 = 'car-sharing-histograms-a' + str(alpha) + '-b' + str(beta) + '.dat'
-f = open(f3, 'a')
-out_string = '\"T:' + str(T) +  'D:' + str(D) + '\"' + ' ' + str(starting_cars) + ' ' + str(final_cars) + '\n'
+out_string = str(T) + " " + str(D) + " " + str(alpha) + " " + str(beta) + " " + str(N) + " " + str(final_cars) + "\n"
 f.write(out_string)
 f.close()
 
