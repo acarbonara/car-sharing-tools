@@ -60,7 +60,6 @@ if alpha == beta:
             if time <= T or distance <= D and n == N:
                 f = city_dir + fd
                 check_file = open(f, "r")
-                break
 
 lines = []
 cars_lists = []
