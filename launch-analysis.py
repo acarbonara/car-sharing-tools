@@ -30,7 +30,7 @@ for i in range(len(t)):
         if not os.path.exists(city_dir):
             os.makedirs(city_dir)
         for a in range(len(alphas)):
-            beta = 1.0 - a
+            beta = 1.0 - alphas[a]
             script = 'python car-analysis.py ' + str(t[i]) + ' ' + str(d[j]) + ' ' + str(alphas[a]) + ' ' + str(beta) + ' ' + str(N) + ' ' + city_dir
             os.system(script)
 
