@@ -57,7 +57,7 @@ if alpha == beta:
             time = int(f_s[3])
             distance = int(f_s[4])
             n = int(f_s[5])
-            if time <= T or distance <= D and n == N:
+            if (time <= T or distance <= D) and (n == N):
                 f = city_dir + fd
                 check_file = open(f, "r")
 
