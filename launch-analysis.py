@@ -24,13 +24,13 @@ for k in range(len(Ns)):
 script = 'mv *.dat ' + city_dir
 os.system(script)
 
-for i in range(len(t)):
-    for j in range(len(d)):
-        city_dir = "matched-cars-final-" + city + "/"
-        if not os.path.exists(city_dir):
-            os.makedirs(city_dir)
-        for a in range(len(alphas)):
-            beta = 1.0 - alphas[a]
+for a in range(len(alphas)):
+    beta = 1.0 - alphas[a]
+    for i in range(len(t)):
+        for j in range(len(d)):
+            city_dir = "matched-cars-final-" + city + "/"
+            if not os.path.exists(city_dir):
+                os.makedirs(city_dir)
             script = 'python car-analysis.py ' + str(t[i]) + ' ' + str(d[j]) + ' ' + str(alphas[a]) + ' ' + str(beta) + ' ' + str(N) + ' ' + city_dir
             os.system(script)
 
