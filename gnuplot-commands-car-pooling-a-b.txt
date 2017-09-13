@@ -1,0 +1,14 @@
+set terminal postscript enhanced color eps
+set title "Car Pooling Reduction alpha/beta variation"
+set xlabel "alpha/beta\n(beta := 1 - alpha)"
+set ylabel "% mean of Reduction"
+set key outside top right
+#set yrange[60:81]
+set y2tics
+
+
+set o 'car-pooling-a-b-stats.eps'
+plot  'car-pooling-a-b-stats-20150312.dat' using 1:3 title "`head -1 car-pooling-a-b-stats-20150312.dat`" with linespoint ls 1 lw 4,\
+      'car-pooling-a-b-stats-20150430.dat' using 1:3 title "`head -1 car-pooling-a-b-stats-20150430.dat`" with linespoint ls 2 lw 4,\
+      'car-pooling-a-b-stats-20150304.dat' using 1:3 title "`head -1 car-pooling-a-b-stats-20150304.dat`" with linespoint ls 3 lw 4,\
+      'car-pooling-a-b-stats-20150409.dat' using 1:3 title "`head -1 car-pooling-a-b-stats-20150409.dat`" with linespoint ls 4 lw 4,

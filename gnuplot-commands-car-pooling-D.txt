@@ -1,0 +1,14 @@
+set terminal postscript enhanced color eps
+set title "Car Pooling Reduction distance variation"
+set xlabel "Distance (m)"
+set ylabel "% mean of Reduction"
+set key outside top right
+set y2tics
+
+
+set o 'car-pooling-D-stats.eps'
+plot  'car-pooling-D-stats-20150312.dat' using 1:2 title "`head -1 car-pooling-D-stats-20150312.dat`" with linespoint ls 1 lw 2,\
+      'car-pooling-D-stats-20150319.dat' using 1:2 title "`head -1 car-pooling-D-stats-20150319.dat`" with linespoint ls 2 lw 2,\
+      'car-pooling-D-stats-20150430.dat' using 1:2 title "`head -1 car-pooling-D-stats-20150430.dat`" with linespoint ls 3 lw 2,\
+      'car-pooling-D-stats-20150304.dat' using 1:2 title "`head -1 car-pooling-D-stats-20150304.dat`" with linespoint ls 4 lw 2,\
+      'car-pooling-D-stats-20150409.dat' using 1:2 title "`head -1 car-pooling-D-stats-20150409.dat`" with linespoint ls 5 lw 2,
