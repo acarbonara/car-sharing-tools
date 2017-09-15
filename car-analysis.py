@@ -49,7 +49,7 @@ files = os.listdir(city_dir)
 files.sort()
 check_file = None
 
-if alpha == beta:
+'''if alpha == beta:
     for fd in files:
         name = os.path.splitext(fd)[0]
         if "matched-cars-final" in name:
@@ -59,7 +59,7 @@ if alpha == beta:
             n = int(f_s[5])
             if (time <= T or distance <= D) and (n == N):
                 f = city_dir + fd
-                check_file = open(f, "r")
+                check_file = open(f, "r")'''
 
 lines = []
 cars_lists = []
@@ -203,7 +203,7 @@ final_cars = starting_cars - total_matched
 
 f1 = 'car-pooling-a' + str(alpha) + '-b' + str(beta) + '.dat'
 f = open(f1, 'a')
-out_string = str(T) + " " + str(D) + " " + str(alpha) + " " + str(beta) + " " + str(N) + " " + str(final_cars) + "\n"
+out_string = str(T) + " " + str(D) + " " + str(alpha) + " " + str(beta) + " " + str(N) + " " + str(final_cars) + " " + str(starting_cars) + "\n"
 f.write(out_string)
 f.close()
 
