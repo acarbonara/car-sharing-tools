@@ -23,7 +23,8 @@ for l in lines:
     beta = float(l[3])
     N = float(l[4])
     finalCars = float(l[5])
-    info = Util(time, distance, alpha, beta, N, finalCars)
+    starting_cars = float(l[6])
+    info = Util(time, distance, alpha, beta, N, finalCars, starting_cars)
     infos.append(info)
 
 # N variation
@@ -39,8 +40,8 @@ if method == 0:
             cars += infos[i].getFinalCars()
             count += 1
         else:
-            avg = 51900 - (cars / count)
-            perc = (avg * 100) / 51900
+            avg = infos[i].getStartingCars() - (cars / count)
+            perc = (avg * 100) / infos[i].getStartingCars()
             tuples.append((n_tmp, perc))
             n_tmp = infos[i].getN()
             cars = infos[i].getFinalCars()
@@ -57,8 +58,8 @@ if method == 0:
             cars += i.getFinalCars()
             count += 1
         else:
-            avg = 51900 - (cars / count)
-            perc = (avg * 100) / 51900
+            avg = i.getStartingCars() - (cars / count)
+            perc = (avg * 100) / i.getStartingCars()
             tuples.append((n_tmp, perc))
             break
 
@@ -88,8 +89,8 @@ elif method == 1:
             cars += infos[i].getFinalCars()
             count += 1
         else:
-            avg = 51900 - (cars / count)
-            perc = (avg * 100) / 51900
+            avg = infos[i].getStartingCars() - (cars / count)
+            perc = (avg * 100) / infos[i].getStartingCars()
             tuples.append((t_tmp, perc))
             t_tmp = infos[i].getTime()
             cars = infos[i].getFinalCars()
@@ -106,8 +107,8 @@ elif method == 1:
             cars += i.getFinalCars()
             count += 1
         else:
-            avg = 51900 - (cars / count)
-            perc = (avg * 100) / 51900
+            avg = i.getStartingCars() - (cars / count)
+            perc = (avg * 100) / i.getStartingCars()
             tuples.append((t_tmp, perc))
             break
 
@@ -137,8 +138,8 @@ elif method == 2:
             cars += infos[i].getFinalCars()
             count += 1
         else:
-            avg = 51900 - (cars / count)
-            perc = (avg * 100) / 51900
+            avg = infos[i].getStartingCars() - (cars / count)
+            perc = (avg * 100) / infos[i].getStartingCars()
             tuples.append((d_tmp, perc))
             d_tmp = infos[i].getDistance()
             cars = infos[i].getFinalCars()
@@ -155,8 +156,8 @@ elif method == 2:
             cars += i.getFinalCars()
             count += 1
         else:
-            avg = 51900 - (cars / count)
-            perc = (avg * 100) / 51900
+            avg = i.getStartingCars() - (cars / count)
+            perc = (avg * 100) / i.getStartingCars()
             tuples.append((d_tmp, perc))
             break
 
@@ -187,8 +188,8 @@ elif method == 3:
             cars += infos[i].getFinalCars()
             count += 1
         else:
-            avg = 51900 - (cars / count)
-            perc = (avg * 100) / 51900
+            avg = infos[i].getStartingCars() - (cars / count)
+            perc = (avg * 100) / infos[i].getStartingCars()
             tuples.append((alpha_tmp, beta_tmp, perc))
             alpha_tmp = infos[i].getAlpha()
             beta_tmp = infos[i].getBeta()
@@ -207,8 +208,8 @@ elif method == 3:
             cars += i.getFinalCars()
             count += 1
         else:
-            avg = 51900 - (cars / count)
-            perc = (avg * 100) / 51900
+            avg = i.getStartingCars() - (cars / count)
+            perc = (avg * 100) / i.getStartingCars()
             tuples.append((alpha_tmp, beta_tmp, perc))
             break
 
